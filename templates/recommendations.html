@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Finalizar Cita - Recomendaciones</h2>
+
+<div class="card mb-4">
+    <div class="card-body">
+        <h5>Paciente: {{ cita['paciente'] }} ({{ cita['paciente_identidad'] }})</h5>
+        <h5>Médico: {{ cita['medico'] }} ({{ cita['medico_identidad'] }})</h5>
+        <p><strong>Fecha:</strong> {{ cita['fecha'] }}</p>
+    </div>
+</div>
+
+<form method="POST">
+    <div class="mb-3">
+        <label class="form-label fw-bold">Recomendaciones Médicas</label>
+        <textarea name="recomendaciones" class="form-control" rows="10" placeholder="Escriba aquí las indicaciones, tratamiento, observaciones..." required></textarea>
+    </div>
+    <button type="submit" class="btn btn-success">Guardar Recomendaciones</button>
+    <a href="{{ url_for('patients') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

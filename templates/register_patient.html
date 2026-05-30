@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Registrar Nuevo Paciente</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label>Número de Identidad</label>
+        <input type="text" name="numero_identidad" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Nombre Completo</label>
+        <input type="text" name="nombre" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Edad</label>
+        <input type="number" name="edad" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label>Ciudad</label>
+        <input type="text" name="ciudad" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-success">Guardar Paciente</button>
+    <a href="{{ url_for('patients') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Nueva Cita Médica</h2>
+<form method="POST">
+    <div class="mb-3">
+        <label>Paciente</label>
+        <select name="paciente_id" class="form-select" required>
+            <option value="">Seleccione un paciente...</option>
+            {% for p in pacientes %}
+            <option value="{{ p['id'] }}">{{ p['nombre'] }} ({{ p['numero_identidad'] }})</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Médico</label>
+        <select name="medico_id" class="form-select" required>
+            <option value="">Seleccione un médico...</option>
+            {% for m in medicos %}
+            <option value="{{ m['id'] }}">{{ m['nombre'] }} - {{ m['especialidad'] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label>Fecha</label>
+        <input type="date" name="fecha" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-warning">Agendar Cita</button>
+    <a href="{{ url_for('patients') }}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
